@@ -87,18 +87,14 @@ const FrameComponent = () => {
             if(valid1){
                 setWin(true)
                }
-               else if(count==9){
-                setDraw(true)
-               }
+               
         }
         else if(!player2){
           let valid2=validation(arr,ij.i,ij.j,2)
             if(valid2){
                 setWin(true)
                 }
-                else if(count==9){
-                  setDraw(true)
-                 }
+               
         }
        
     },[player1,player2])
@@ -197,7 +193,7 @@ const FrameComponent = () => {
         </div>
       </h1>}
       {
-      (draw&&count==9)&& <h1 className="x-wins-wrapper" >
+      (!win&&count==9)&& <h1 className="x-wins-wrapper" >
         <div className="wins side">
           DRAW
           
