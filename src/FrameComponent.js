@@ -29,7 +29,7 @@ const FrameComponent = () => {
         let i=parseInt((e.currentTarget.getAttribute('data-i')))
         let j=parseInt(e.currentTarget.getAttribute('data-j'))
         let id=parseInt(e.currentTarget.getAttribute('data-id'))
-        if(!pixelmap.get(id).changed){
+        if(!pixelmap.get(id).changed&&!win){
 
         
            
