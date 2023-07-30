@@ -16,6 +16,7 @@ const FrameComponent = () => {
     let [player2,setPlayer2]=useState(false)
     let [win,setWin]=useState(false)
     let [ij,setIj]=useState({i:0,j:0})
+    let [count,setCount]=useState(0)
     
     // console.log('changed state',player1,player2)
     // let [state,setState]=useState({1:{src:src.default},2:{src:src.default},2:{src:src.default},2:{src:src.default},3:{src:src.default},4:{src:src.default},5:{src:src.default},6:{src:src.default},7:{src:src.default},8:{src:src.default},9:{src:src.default}})
@@ -75,6 +76,7 @@ const FrameComponent = () => {
           
           setPlayer1(prev=>!prev)
           setPlayer2(prev=>!prev)
+          setCount(prev=>prev+1)
         }
     }
     useEffect(()=>{
@@ -172,6 +174,7 @@ const FrameComponent = () => {
         }
         setIj({i:0,j:0})
         setWin(false)
+        setCount(0)
         
    
       }}>
@@ -181,6 +184,14 @@ const FrameComponent = () => {
         <div className="x-wins">
           <p className="x">{(!player1&&win)?'O':'X'}</p>
           <p className="wins"> Wins</p>
+          
+        </div>
+      </h1>}
+      {
+      count==9&& <h1 className="x-wins-wrapper" >
+        <div className="wins side">
+          DRAW
+          
         </div>
       </h1>}
     </div>

@@ -279,3 +279,6 @@
   .hide{
     visibility: hidden;
   }
+  .side{
+    margin-left: -5px;
+  }
