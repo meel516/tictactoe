@@ -15,6 +15,7 @@ const FrameComponent = () => {
     let [player1,setPlayer1]=useState(true)
     let [player2,setPlayer2]=useState(false)
     let [win,setWin]=useState(false)
+    let [draw,setDraw]=useState(false)
     let [ij,setIj]=useState({i:0,j:0})
     let [count,setCount]=useState(0)
     
@@ -82,20 +83,28 @@ const FrameComponent = () => {
     useEffect(()=>{
         console.log(ij)
         if(!player1){
-            if(validation(arr,ij.i,ij.j,1)){
-               
+          let valid1=validation(arr,ij.i,ij.j,1)
+            if(valid1){
                 setWin(true)
-            }
+               }
+               else if(count==9){
+                setDraw(true)
+               }
         }
         else if(!player2){
-            if(validation(arr,ij.i,ij.j,2)){
-                console.log()
+          let valid2=validation(arr,ij.i,ij.j,2)
+            if(valid2){
                 setWin(true)
-            }
+                }
+                else if(count==9){
+                  setDraw(true)
+                 }
         }
        
     },[player1,player2])
     useEffect(() => {
+      
+     
         const scrollAnimElements = document.querySelectorAll(
           "[data-animate-on-scroll]"
         );
@@ -188,7 +197,7 @@ const FrameComponent = () => {
         </div>
       </h1>}
       {
-      count==9&& <h1 className="x-wins-wrapper" >
+      (draw&&count==9)&& <h1 className="x-wins-wrapper" >
         <div className="wins side">
           DRAW
           
