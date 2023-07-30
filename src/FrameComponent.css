@@ -1,0 +1,281 @@
+.frame-child {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: #d9d9d9;
+    position: relative;
+    border-radius: 3px;
+    width: 48px;
+    height: 48px;
+    z-index: 0;
+  }
+  .frame-item {
+    position: absolute;
+    margin: 0 !important;
+    top: 7px;
+    left: 7px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .rectangle-parent {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 15px;
+    left: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .frame-inner {
+    position: relative;
+    border-radius: 3px;
+    background-color: #d9d9d9;
+    width: 48px;
+    height: 48px;
+    z-index: 0;
+  }
+  .ellipse-icon {
+    position: absolute;
+    margin: 0 !important;
+    top: 3px;
+    left: 7px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .rectangle-group {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 119px;
+    left: 128px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .frame-child1 {
+    position: absolute;
+    margin: 0 !important;
+    top: 9px;
+    left: 7px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .rectangle-container {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 15px;
+    left: 76px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .frame-button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 15px;
+    left: 128px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .rectangle-parent1 {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 67px;
+    left: 76px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .rectangle-parent2 {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 67px;
+    left: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .vector-icon {
+    position: absolute;
+    margin: 0 !important;
+    top: 4.35px;
+    left: 8.58px;
+    width: 33.42px;
+    height: 32.07px;
+    z-index: 1;
+  }
+  .rectangle-parent3 {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 119px;
+    left: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .frame-child10 {
+    position: absolute;
+    margin: 0 !important;
+    top: 5.35px;
+    left: 6.58px;
+    width: 33.42px;
+    height: 32.07px;
+    z-index: 1;
+  }
+  .rectangle-parent4 {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 67px;
+    left: 129px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .frame-child12 {
+    position: absolute;
+    margin: 0 !important;
+    top: 4.35px;
+    left: 6.58px;
+    width: 33.42px;
+    height: 32.07px;
+    z-index: 1;
+  }
+  .rectangle-parent5 {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 119px;
+    left: 76px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .players1 {
+    position: relative;
+    font-size: 12px;
+    font-family: Inter;
+    color: #db1d1d;
+    text-align: center;
+  }
+  .players {
+    cursor: pointer;
+    border: none;
+    padding: 5px 3px;
+    background-color: #8eec17;
+    position: absolute;
+    top: 183px;
+    left: 72px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .frame-parent {
+    position: relative;
+    background-color: #fff;
+    width: 211px;
+    height: 223px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.75);
+    font-family: Inter;
+  }
+  .x {
+    margin-block-start: 0;
+    margin-block-end: 20px;
+  }
+  .wins {
+    margin: 0;
+  }
+  .x-wins {
+    position: relative;
+    font-weight: 800;
+  }
+  .x-wins-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 15px;
+    left: 65px;
+    height: 152px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 10;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  .x-wins-wrapper.animate {
+    animation: 2s ease 0s infinite normal forwards scale-up;
+  }
+  
+  @keyframes scale-up {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .hide{
+    visibility: hidden;
+  }
