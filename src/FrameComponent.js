@@ -7,7 +7,7 @@ console.log(arry,'im happy')
 let src={player1:"/ellipse-3@2x.png",player2:"/vector-4.svg",default:"/bg.png"}
 let pixelmap=new Map()
 for(let k=0;k<=9;k++){
-pixelmap.set(k,{src:src.default})
+pixelmap.set(k,{src:src.default,changed:false})
 }
 
 const FrameComponent = () => {
@@ -29,11 +29,15 @@ const FrameComponent = () => {
         let i=parseInt((e.currentTarget.getAttribute('data-i')))
         let j=parseInt(e.currentTarget.getAttribute('data-j'))
         let id=parseInt(e.currentTarget.getAttribute('data-id'))
+        if(!pixelmap.get(id).changed){
+
+        
+           
         setIj({i:i,j:j})
         if(player1){
             e.target.src=src.player1
-         pixelmap.set(id,{src:src.player1})
-            let newarr=arr.map((val,index)=>{
+         pixelmap.set(id,{src:src.player1,changed:true})
+         let newarr=arr.map((val,index)=>{
                 if(i==index){
                     val[j]=1
                     return val
@@ -71,7 +75,7 @@ const FrameComponent = () => {
           
           setPlayer1(prev=>!prev)
           setPlayer2(prev=>!prev)
-
+        }
     }
     useEffect(()=>{
         console.log(ij)
