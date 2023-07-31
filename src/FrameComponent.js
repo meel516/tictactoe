@@ -9,6 +9,7 @@ let pixelmap=new Map()
 for(let k=0;k<=9;k++){
 pixelmap.set(k,{src:src.default,changed:false})
 }
+let winauido= new Audio("https://pagalsong.in/uploads/systemuploads/mp3/Jodhaa%20Akbar/Azeem-O-Shaan%20Shahenshah%20-%20Jodhaa%20Akbar.mp3")
 
 const FrameComponent = () => {
     let [arr,setArray]=useState(arry)
@@ -129,8 +130,15 @@ const FrameComponent = () => {
           }
         };
       }, [win]);
-   
+    
 
+  if(win){
+    winauido.play()
+  }
+  else {
+    winauido.pause()
+    winauido.currentTime=0
+  }
   return (<> 
 
     <div className="frame-parent">
@@ -189,7 +197,6 @@ const FrameComponent = () => {
         <div className="x-wins">
           <p className="x">{(!player1&&win)?'O':'X'}</p>
           <p className="wins"> Wins</p>
-          
         </div>
       </h1>}
       {
