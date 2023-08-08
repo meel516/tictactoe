@@ -7,23 +7,24 @@ let hismessagemap=new Map()
 const ChatScreen = () => {
   const [messages,setMessages]=useState([])
   const [userName,setuserName]=useState('')
+  const [opposite,setOpposite]=useState('')
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
  
   console.log('refreshes')
   useEffect(()=>{
+    console.log(messages,"thi is the message")
+    console.log(typeof(messages))
     
  messages.forEach(({_id,username})=>hismessagemap.set(_id,username))
 
   },[messages])
   useEffect(()=>{async function get(){
-    const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage')
-    setMessages(data.data)
-
- 
-  
-  
-
+    const data= await axios.get('http://localhost:5000/getMessage',{params:{username:userName,opposite:opposite}})
+    const data1=await axios.get('http://localhost:5000/getMessage',{params:{username:opposite,opposite:userName}})
+    let mixeddata=[...data.data,...data1.data]
+    mixeddata.sort((a,b)=>a.time-b.time)
+    setMessages(mixeddata)
   }
 get()
 const intervalId=setInterval(()=>{
@@ -38,7 +39,10 @@ return ()=>clearInterval(intervalId)},[refresh])
             e.preventDefault()
           
             setuserName(e.target.username.value)
+            setOpposite(e.target.opposite.value)
             }}><input type="text" className="form-control" placeholder="enter your name" name="username"></input>
+            <input type="text" className="form-control" placeholder="enter your friends name" name="opposite"></input>
+            
         <button type="submit" className="btn btn-primary align-self-center">login</button></form></div>
       }
       {
@@ -49,7 +53,7 @@ return ()=>clearInterval(intervalId)},[refresh])
         <div className="profile">
           <img className="profile-child" alt="" src="/ellipse-12@2x.png" />
           <div className="robert-fox-parent">
-            <h1 className="robert-fox">{userName}</h1>
+            <h1 className="robert-fox">{opposite}</h1>
             <h1 className="online" id="status">
               Online
             </h1>
@@ -67,7 +71,7 @@ sent.play()
           }
           return <Mymessage {...dta}/>
         }
-        else{
+        if(opposite==dta.username){
           if(!(hismessagemap.has(dta._id))){
             let sent= new Audio("https://quicksounds.com/uploads/tracks/1589352698_1112378855_986823738.mp3")
 sent.play()
@@ -81,11 +85,12 @@ sent.play()
       <div className="type-here-parent">
         <textarea className="type-here" value={send} placeholder="Type here..." onInput={(e)=>setSend(e.target.value)} />
         <button type="button" onClick={async()=>{
- const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{username:userName,message:send
+ const confirmation = await axios.post('http://localhost:5000/newMessage',{username:userName,opposite:opposite,message:send
 
 })
 // let sent= new Audio("https://quicksounds.com/uploads/tracks/285751901_593827859_1629229643.mp3")
 // sent.play()
+console.log(confirmation)
 Setrefresh(prev=>!prev)
 setSend('')
 
