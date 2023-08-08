@@ -17,7 +17,7 @@ const ChatScreen = () => {
     console.log(data)
 
   }
-get()},[refresh])
+get()},[refresh,checkmssg])
   return (
     <div className="chat-screen">
       {
@@ -47,10 +47,10 @@ get()},[refresh])
       <div className="hismessage-parent d-block overflow-scroll">
        {messages.map((dta,idx)=>{
         if(userName==dta.username){
-          return <Mymessage {...dta,idx}/>
+          return <Mymessage {...dta}/>
         }
         else{
-          return <Hismessage {...dta,idx}/>
+          return <Hismessage {...dta}/>
         }
        })}
       
