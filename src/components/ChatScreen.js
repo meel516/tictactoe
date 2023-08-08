@@ -62,6 +62,7 @@ get()},[refresh,checkmssg])
 
 })
 Setrefresh(prev=>!prev)
+setSend('')
         }}>
           <img className="more-square-icon" alt="" src="/moresquare.svg" />
         </button>
