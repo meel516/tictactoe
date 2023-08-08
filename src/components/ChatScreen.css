@@ -161,9 +161,7 @@
 }
 .send {
   cursor: pointer;
-  border: none;
   padding: 0;
-  background-color: transparent;
   position: absolute;
   height: 19.84%;
   width: 6.36%;
