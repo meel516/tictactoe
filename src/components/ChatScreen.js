@@ -8,7 +8,8 @@ const ChatScreen = () => {
   const [userName,setuserName]=useState('')
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
-  setTimeout(()=>Setrefresh(prev=>!prev),1000)
+  const [checkmssg,setcheckmssg]=useState(false)
+  setTimeout(()=>setcheckmssg(prev=>!prev),1000)
   console.log('refreshes')
   useEffect(()=>{async function get(){
     const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage')
@@ -46,10 +47,10 @@ get()},[refresh])
       <div className="hismessage-parent d-block overflow-scroll">
        {messages.map((dta,idx)=>{
         if(userName==dta.username){
-          return <Mymessage {...dta}/>
+          return <Mymessage {...dta,idx}/>
         }
         else{
-          return <Hismessage {...dta}/>
+          return <Hismessage {...dta,idx}/>
         }
        })}
       

@@ -10,9 +10,9 @@ function formatTimestampFromMilliseconds(timestamp) {
   return `${hoursStr}:${minutesStr}`;
 }
 console.log(formatTimestampFromMilliseconds(14666295),'sjkhgkugkdda')
-const Mymessage=({message,time})=>{
+const Mymessage=({message,time,idx})=>{
     console.log(message)
-    return  <div className="mymessage">
+    return  <div key={idx} className="mymessage">
     <div className="of-course-the-match-was-amazin-wrapper">
       <div className="hi-frank-do">{message}</div>
     </div>
