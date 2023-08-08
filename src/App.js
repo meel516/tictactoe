@@ -29,7 +29,7 @@ function App() {
        
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<FrameComponent/>}>
+        <Route path='/home' element={<FrameComponent/>}>
       
         <Route path='chat' element={<ChatScreen/>}/>
         </Route>
