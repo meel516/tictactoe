@@ -9,7 +9,7 @@ const ChatScreen = () => {
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
   useEffect(()=>{async function get(){
-    const data= await axios.get('http://localhost:5000/getMessage')
+    const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage')
     setMessages(data.data)
     console.log(data)
 
@@ -55,7 +55,7 @@ get()},[refresh])
       <div className="type-here-parent">
         <textarea className="type-here" placeholder="Type here..." onBlur={(e)=>setSend(e.target.value)}/>
         <button className="send" onClick={async()=>{
- const confirmation = await axios.post('http://localhost:5000/newMessage',{username:userName,message:send
+ const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{username:userName,message:send
 
 })
 Setrefresh(prev=>!prev)
