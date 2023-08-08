@@ -8,7 +8,7 @@ const ChatScreen = () => {
   const [userName,setuserName]=useState('')
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
-  setTimeout(()=>Setrefresh(prev=>!prev))
+  setTimeout(()=>Setrefresh(prev=>!prev),1000)
   console.log('refreshes')
   useEffect(()=>{async function get(){
     const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage')
