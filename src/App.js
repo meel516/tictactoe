@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<FrameComponent/>}>
       
-        <Route path='/chat' element={<ChatScreen/>}/>
+        <Route path='chat' element={<ChatScreen/>}/>
         </Route>
      
       </Routes>
