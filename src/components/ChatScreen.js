@@ -3,13 +3,14 @@ import { useState,useEffect,useCallback} from "react";
 import axios from "axios";
 import Mymessage from "./Mymessage";
 import Hismessage from "./Hismessage";
+import { useParams } from "react-router-dom";
 let hismessagemap=new Map()
-const ChatScreen = () => {
+const ChatScreen = (props) => {
+  const userName=props.userName
   const [messages,setMessages]=useState([])
-  const [userName,setuserName]=useState('')
-  const [opposite,setOpposite]=useState('')
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
+  const {opposite} = useParams()
  
   console.log('refreshes')
   useEffect(()=>{
@@ -20,8 +21,8 @@ const ChatScreen = () => {
 
   },[messages])
   useEffect(()=>{async function get(){
-    const data= await axios.get('http://localhost:5000/getMessage',{params:{username:userName,opposite:opposite}})
-    const data1=await axios.get('http://localhost:5000/getMessage',{params:{username:opposite,opposite:userName}})
+    const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage',{params:{username:userName,opposite:opposite}})
+    const data1=await axios.get('https://tictactoe-zsyj.onrender.com/getMessage',{params:{username:opposite,opposite:userName}})
     let mixeddata=[...data.data,...data1.data]
     mixeddata.sort((a,b)=>a.time-b.time)
     setMessages(mixeddata)
@@ -33,18 +34,7 @@ const intervalId=setInterval(()=>{
 return ()=>clearInterval(intervalId)},[refresh])
   return (
     <div className="chat-screen">
-      {
-        !userName &&<div className="login">
-          <form className="d-flex" onSubmit={(e)=>{
-            e.preventDefault()
-          
-            setuserName(e.target.username.value)
-            setOpposite(e.target.opposite.value)
-            }}><input type="text" className="form-control" placeholder="enter your name" name="username"></input>
-            <input type="text" className="form-control" placeholder="enter your friends name" name="opposite"></input>
-            
-        <button type="submit" className="btn btn-primary align-self-center">login</button></form></div>
-      }
+      
       {
         
       userName&&
@@ -85,7 +75,7 @@ sent.play()
       <div className="type-here-parent">
         <textarea className="type-here" value={send} placeholder="Type here..." onInput={(e)=>setSend(e.target.value)} />
         <button type="button" onClick={async()=>{
- const confirmation = await axios.post('http://localhost:5000/newMessage',{username:userName,opposite:opposite,message:send
+ const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{username:userName,opposite:opposite,message:send
 
 })
 // let sent= new Audio("https://quicksounds.com/uploads/tracks/285751901_593827859_1629229643.mp3")

@@ -45,7 +45,7 @@
   flex-shrink: 0;
 }
 .friend {
-  position: absolute;
+  position: relative;
   top: 207px;
   left: 22px;
   border-radius: 14px;

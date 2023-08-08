@@ -4,7 +4,11 @@ import FrameComponent from './FrameComponent';
 import ChatScreen from './components/ChatScreen';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Chathome from './components/Chathome';
+import { useCallback, useState } from 'react';
 function App() {
+  const [userName,setuserName]=useState('')
+  const func=useCallback((val)=>setuserName(val),[])
   return (
     <>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -19,7 +23,7 @@ function App() {
           <a class="nav-link" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/home/chat">Chat</a>
+          <a class="nav-link" href="/home/chathome">Chat</a>
         </li>
         
       </ul>
@@ -53,8 +57,9 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/home' element={<FrameComponent/>}>
+          <Route path='chathome' element={<Chathome userName={userName} setuser={func}/>}/>
       
-        <Route path='chat' element={<ChatScreen/>}/>
+        <Route path=":opposite" element={<ChatScreen userName={userName}/>}/>
         </Route>
      
       </Routes>
