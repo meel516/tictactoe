@@ -41,7 +41,7 @@ get()},[refresh])
           </div>
         </div>
       </div>
-      <div className="hismessage-parent d-block">
+      <div className="hismessage-parent d-block overflow-scroll">
        {messages.map((dta,idx)=>{
         if(userName==dta.username){
           return <Mymessage {...dta}/>
