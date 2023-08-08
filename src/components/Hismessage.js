@@ -9,8 +9,8 @@ function formatTimestampFromMilliseconds(timestamp) {
 
   return `${hoursStr}:${minutesStr}`;
 }
-const Hismessage=({message,time,id})=>{
-    return   <div key={id} className="hismessage ms-0">
+const Hismessage=({message,time,_id})=>{
+    return   <div key={_id} className="hismessage ms-0">
     <div className="hi-frank-do-you-watch-nba-matc-wrapper">
       <div className="hi-frank-do">
         {message}
