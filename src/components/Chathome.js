@@ -20,7 +20,7 @@ const Chathome = (props) => {
     
   },[userName])
   return (
-    <div className="chathome">
+    <div className="chathome d-flex">
       {
         
           !userName &&<div className="login">
