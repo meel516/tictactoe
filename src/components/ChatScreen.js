@@ -59,7 +59,7 @@ return ()=>clearInterval(intervalId)},[refresh])
       
       </div>
       <div className="type-here-parent">
-        <textarea className="type-here" placeholder="Type here..." onBlur={(e)=>setSend(e.target.value)}/>
+        <textarea className="type-here" value={send} placeholder="Type here..." onInput={(e)=>setSend(e.target.value)} />
         <button type="button" onClick={async()=>{
  const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{username:userName,message:send
 
