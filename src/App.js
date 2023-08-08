@@ -16,10 +16,10 @@ function App() {
      
         <ul className="navbar-nav mr-auto">
         <li className="nav-item active">
-        <a className="nav-link" href='https://saleemtictactoe.netlify.app/'>Home<span className="sr-only"></span></a>
+        <a className="nav-link" href='/'>Home<span className="sr-only"></span></a>
        </li>
        <li className="nav-item">
-        <a className="nav-link" href='https://saleemtictactoe.netlify.app/chat'>Login</a>
+        <a className="nav-link" href='/chat'>Login</a>
        </li>
         </ul>
         </div>
