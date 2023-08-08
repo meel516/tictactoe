@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from "react";
 import { validation } from "./Tictac";
 import { arry } from "./Tictac";
+import { Outlet } from "react-router-dom";
 console.log(arry,'im happy')
 let src={player1:"/ellipse-3@2x.png",player2:"/vector-4.svg",default:"/bg.png"}
 let pixelmap=new Map()
@@ -19,6 +20,7 @@ const FrameComponent = () => {
     let [draw,setDraw]=useState(false)
     let [ij,setIj]=useState({i:0,j:0})
     let [count,setCount]=useState(0)
+  
     
     // console.log('changed state',player1,player2)
     // let [state,setState]=useState({1:{src:src.default},2:{src:src.default},2:{src:src.default},2:{src:src.default},3:{src:src.default},4:{src:src.default},5:{src:src.default},6:{src:src.default},7:{src:src.default},8:{src:src.default},9:{src:src.default}})
@@ -141,7 +143,7 @@ const FrameComponent = () => {
   }
   return (<> 
 
-    <div className="frame-parent">
+    <div className="frame-parent align-self-sm-center">
       <button className="rectangle-parent" data-id="1" data-i="0" data-j="0" onClick={(e)=>setPlayer(e)}>
         <button className="frame-child" />
         <img className="frame-item" onClick={(e)=>{console.log(e.target.class)}} alt=""  src={pixelmap.get(1).src} />
@@ -207,6 +209,7 @@ const FrameComponent = () => {
         </div>
       </h1>}
     </div>
+    <Outlet/>
     </>
   );
 };
