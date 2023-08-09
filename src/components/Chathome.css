@@ -5,7 +5,7 @@
   height: 50px;
   object-fit: cover;
 }
-.robert-fox {
+.robert-fox1 {
   margin: 0;
   position: relative;
   font-size: inherit;
@@ -22,7 +22,7 @@
   display: inline-block;
   width: 177px;
 }
-.robert-fox-parent {
+.robert-fox-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -45,8 +45,8 @@
   flex-shrink: 0;
 }
 .friend {
-  position: relative;
-  top: 150px;
+  position: absolute;
+  top: 207px;
   left: 22px;
   border-radius: 14px;
   background-color: #fff;
@@ -151,7 +151,7 @@
   height: 130px;
   z-index: 0;
 }
-.home-indicator1 {
+.home-indicator2 {
   position: absolute;
   bottom: 8px;
   left: calc(50% - 67px);
@@ -160,7 +160,7 @@
   width: 134px;
   height: 5px;
 }
-.homeindicator {
+.homeindicator1 {
   position: absolute;
   margin: 0 !important;
   top: 67px;
