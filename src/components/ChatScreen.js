@@ -4,6 +4,7 @@ import axios from "axios";
 import Mymessage from "./Mymessage";
 import Hismessage from "./Hismessage";
 import { useParams } from "react-router-dom";
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("chattoken")}`;
 let hismessagemap=new Map()
 const ChatScreen = (props) => {
   const userName=props.userName
@@ -22,8 +23,7 @@ const ChatScreen = (props) => {
   },[messages])
   useEffect(()=>{async function get(){
     const data= await axios.get('https://tictactoe-zsyj.onrender.com/getMessage',{params:{username:userName,opposite:opposite}})
-    const data1=await axios.get('https://tictactoe-zsyj.onrender.com/getMessage',{params:{username:opposite,opposite:userName}})
-    let mixeddata=[...data.data,...data1.data]
+    let mixeddata=[...data.data]
     mixeddata.sort((a,b)=>a.time-b.time)
     setMessages(mixeddata)
   }
@@ -75,7 +75,7 @@ sent.play()
       <div className="type-here-parent">
         <textarea className="type-here" value={send} placeholder="Type here..." onInput={(e)=>setSend(e.target.value)} />
         <button type="button" onClick={async()=>{
- const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{username:userName,opposite:opposite,message:send
+ const confirmation = await axios.post('http://localhost:5000/newMessage',{opposite:opposite,message:send
 
 })
 // let sent= new Audio("https://quicksounds.com/uploads/tracks/285751901_593827859_1629229643.mp3")

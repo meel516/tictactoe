@@ -143,7 +143,7 @@ const FrameComponent = () => {
   }
   return (<> 
 
-    <div className="frame-parent align-self-sm-center">
+    <div className="frame-parent align-self-sm-center d-none">
       <button className="rectangle-parent" data-id="1" data-i="0" data-j="0" onClick={(e)=>setPlayer(e)}>
         <button className="frame-child" />
         <img className="frame-item" onClick={(e)=>{console.log(e.target.class)}} alt=""  src={pixelmap.get(1).src} />

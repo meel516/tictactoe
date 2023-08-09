@@ -145,7 +145,7 @@
   padding: 0;
   background-color: transparent;
   position: absolute;
-  top: 213px;
+  top: 230px;
   left: 232px;
   font-size: 13px;
   font-family: Poppins;
@@ -155,9 +155,9 @@
   width: 112px;
 }
 .login-button {
-  position: absolute;
-  top: 265px;
-  left: 0px;
+  top: 280px;
+  left: auto;
+  right: auto;
 }
 .email-adress {
   border: none;
@@ -170,12 +170,14 @@
   border: none;
   background-color: transparent;
   position: absolute;
-  top: 113px;
+  top: 20px;
   left: 2px;
 }
 .input-div {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 290px;
+  top: 230px;
   left: 20px;
   width: 354px;
   height: 331px;

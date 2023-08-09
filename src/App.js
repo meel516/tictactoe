@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import FrameComponent from './FrameComponent';
 import ChatScreen from './components/ChatScreen';
+import LoginScreen from './components/LoginScreen';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chathome from './components/Chathome';
@@ -21,6 +22,9 @@ function App() {
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/home/chathome">Chat</a>
@@ -57,7 +61,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/home' element={<FrameComponent/>}>
-          <Route path='chathome' element={<Chathome userName={userName} setuser={func}/>}/>
+        <Route path="login" element={<LoginScreen userName={userName} setuser={func}/>}/>
+          <Route path='chathome' element={<Chathome/>}/>
       
         <Route path=":opposite" element={<ChatScreen userName={userName}/>}/>
         </Route>

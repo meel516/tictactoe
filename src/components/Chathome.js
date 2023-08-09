@@ -2,39 +2,30 @@ import { useEffect, useState } from "react";
 import "./Chathome.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+
+
 const Chathome = (props) => {
   const userName=props.userName
+  console.log(userName)
 
   const [chats,setChats]=useState([])
-  const navigate=useNavigate()
+  const navigate=useNavigate() 
   useEffect(()=>{
     async function get(){
-     let list = await axios.get('https://tictactoe-zsyj.onrender.com/friends/friendslist',{params:{
-      username:userName
-      
-     }})
+      axios.defaults.headers.common['Authorization'] = localStorage.getItem("chattoken")
+      console.log(localStorage.getItem("chattoken"))
+     let list = await axios.get('https://tictactoe-zsyj.onrender.com/friends/friendslist')
+     console.log(list,'show list')
   setChats(list.data[0].friends)
 
     }
-    if(userName!=""){get()}
+    get()
     
-  },[userName])
+  },[])
   return (
     <div className="chathome d-flex">
-      {
-        
-          !userName &&<div className="login">
-            <form className="d-flex" onSubmit={(e)=>{
-              e.preventDefault()
-            
-              props.setuser(e.target.username.value)
-           
-              }}><input type="text" className="form-control" placeholder="enter your name" name="username"></input>
-             
-              
-          <button type="submit" className="btn btn-primary align-self-center">login</button></form></div>
-        
-      }{userName&&<>
+    {<>
       <div className="position-absolute">
       { chats.map((friend)=><> <div className="friend mb-2" onClick={()=>navigate(`/home/${friend}`)}>
         <div className="messagepreview">

@@ -1,14 +1,16 @@
 import { useState } from "react";
-import {
-  Button,
-  TextField,
-  InputAdornment,
-  Icon,
-  IconButton,
-} from "@mui/material";
+import {Button} from "@mui/material";
+import {TextField} from "@mui/material";
+import {InputAdornment} from "@mui/material";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from "axios";
+import {IconButton} from "@mui/material";
 import "./LoginScreen.css";
-const LoginScreen = () => {
+import { useNavigate } from "react-router-dom";
+const LoginScreen = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+  let navigate=useNavigate()
   const handleShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
@@ -47,28 +49,42 @@ const LoginScreen = () => {
         />
       </button>
       <div className="input-div">
+        <form onSubmit={async (e)=>{
+          e.preventDefault()
+          let upload=await axios.post('https://tictactoe-zsyj.onrender.com/users/login',{
+         username:e.target.username.value,password:e.target.password.value
+          })
+        
+          localStorage.setItem("chattoken",(upload.data))
+          console.log(localStorage.getItem("chattoken"))
+          props.setuser(e.target.username.value)
+          navigate("/home/chathome")
+        }}>
         <button className="forgot-password">Forgot Password</button>
-        <Button className="login-button" variant="contained" color="secondary">
+        <div className="d-flex justify-content-center">
+        <Button type="submit" className="login-button" variant="contained" fullWidth color="secondary">
           Login
         </Button>
+        </div>
         <TextField
           className="email-adress"
           fullWidth
           color="secondary"
           variant="outlined"
-          type="email"
-          label="Email Address"
+          type="text"
+          label="Username"
           size="medium"
           margin="normal"
+          name="username"
           required
-          error
         />
         <TextField
           className="password"
+          name="password"
           fullWidth
           color="secondary"
           variant="outlined"
-          type={showPassword ? "text" : "text"}
+          type={showPassword ? "text" : "password"}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -76,7 +92,7 @@ const LoginScreen = () => {
                   onClick={handleShowPasswordClick}
                   aria-label="toggle password visibility"
                 >
-                  <Icon>{showPassword ? "visibility_off" : "visibility"}</Icon>
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             ),
@@ -86,8 +102,8 @@ const LoginScreen = () => {
           size="medium"
           margin="normal"
           required
-          error
         />
+        </form>
       </div>
       <button className="xmlid-17-">
         <img className="xmlid-22-icon" alt="" src="/xmlid-22.svg" />
