@@ -161,9 +161,7 @@
 }
 .send {
   cursor: pointer;
-  border: none;
   padding: 0;
-  background-color: transparent;
   position: absolute;
   height: 19.84%;
   width: 6.36%;
@@ -197,4 +195,9 @@
   font-size: 16px;
   color: #181818;
   font-family: Poppins;
+}
+.login{
+  align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
