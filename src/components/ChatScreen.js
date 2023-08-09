@@ -3,7 +3,7 @@ import { useState,useEffect,useCallback} from "react";
 import axios from "axios";
 import Mymessage from "./Mymessage";
 import Hismessage from "./Hismessage";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("chattoken")}`;
 let hismessagemap=new Map()
 const ChatScreen = (props) => {
@@ -12,12 +12,8 @@ const ChatScreen = (props) => {
   const [send,setSend]=useState('')
   const [refresh,Setrefresh]=useState(false)
   const {opposite} = useParams()
- 
-  console.log('refreshes')
-  useEffect(()=>{
-    console.log(messages,"thi is the message")
-    console.log(typeof(messages))
-    
+  const navigate=useNavigate()
+  useEffect(()=>{    
  messages.forEach(({_id,username})=>hismessagemap.set(_id,username))
 
   },[messages])
@@ -51,6 +47,7 @@ return ()=>clearInterval(intervalId)},[refresh])
         </div>
 
           <img
+            onClick={()=>navigate("/home/chathome")}
             className="arrow-left-icon"
             alt=""
             src="/iconlylightoutlinearrowleft.svg"
