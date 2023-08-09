@@ -201,3 +201,10 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+.arrow-left-icon {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  bottom: 0%;
+  overflow: hidden;
+}

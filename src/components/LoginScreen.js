@@ -56,7 +56,6 @@ const LoginScreen = (props) => {
           })
         
           localStorage.setItem("chattoken",(upload.data))
-          console.log(localStorage.getItem("chattoken"))
           props.setuser(e.target.username.value)
           navigate("/home/chathome")
         }}>

@@ -49,6 +49,13 @@ return ()=>clearInterval(intervalId)},[refresh])
             </h1>
           </div>
         </div>
+
+          <img
+            className="arrow-left-icon"
+            alt=""
+            src="/iconlylightoutlinearrowleft.svg"
+          />
+        
       </div>
       <div className="hismessage-parent d-block overflow-scroll">
        {(messages.length==0)||messages.map((dta,idx)=>{console.log('map was reached')

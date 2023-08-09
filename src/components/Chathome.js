@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Chathome = (props) => {
   const userName=props.userName
-  console.log(userName)
-
   const [chats,setChats]=useState([])
   const navigate=useNavigate() 
   useEffect(()=>{
@@ -16,7 +14,6 @@ const Chathome = (props) => {
       axios.defaults.headers.common['Authorization'] = localStorage.getItem("chattoken")
       console.log(localStorage.getItem("chattoken"))
      let list = await axios.get('https://tictactoe-zsyj.onrender.com/friends/friendslist')
-     console.log(list,'show list')
   setChats(list.data[0].friends)
 
     }
