@@ -37,6 +37,31 @@
   justify-content: flex-start;
   gap: 13px;
 }
+.arrow-left-icon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.iconlylight-outlinearrow-l {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  height: 14.18%;
+  width: 5.09%;
+  top: 42.55%;
+  right: 82.44%;
+  bottom: 43.26%;
+  left: 12.47%;
+}
 .profile-section {
   position: relative;
   border-radius: 18px;
@@ -147,21 +172,11 @@
   color: #8d8d8d;
   text-align: center;
 }
-.more-square-icon {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  left: 0%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
 .send {
   cursor: pointer;
+  border: none;
   padding: 0;
+  background-color: transparent;
   position: absolute;
   height: 19.84%;
   width: 6.36%;
@@ -195,9 +210,4 @@
   font-size: 16px;
   color: #181818;
   font-family: Poppins;
-}
-.login{
-  align-self: center;
-    margin-top: auto;
-    margin-bottom: auto;
 }
