@@ -75,7 +75,7 @@ sent.play()
       <div className="type-here-parent">
         <textarea className="type-here" value={send} placeholder="Type here..." onInput={(e)=>setSend(e.target.value)} />
         <button type="button" onClick={async()=>{
- const confirmation = await axios.post('http://localhost:5000/newMessage',{opposite:opposite,message:send
+ const confirmation = await axios.post('https://tictactoe-zsyj.onrender.com/newMessage',{opposite:opposite,message:send
 
 })
 // let sent= new Audio("https://quicksounds.com/uploads/tracks/285751901_593827859_1629229643.mp3")
